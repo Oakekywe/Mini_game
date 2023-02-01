@@ -8,7 +8,7 @@
     <Result :score="score"/>
   </div>
 
-  <div class="rules">
+  <div class="rules" v-if="rule">
 
     <h3>Rules</h3>
     <ul>
@@ -34,17 +34,20 @@ export default {
       delay: null,
       score: 0,
       end: false,
+      rule: true,
     }
   },
   methods: {
     start(){
       this.isPlaying= true;
+      this.rule= false;
       this.delay= 1000+Math.random()*4000;
     },
     endGame(score){
       this.score= score;
       this.isPlaying= false;
       this.end= true;
+      this.rule= true;
     }
   }
 }
@@ -60,7 +63,7 @@ export default {
   margin-top: 60px;
 }
 .rules{
-  width: 500px;
+  width: 400px;
   height: 300px;
   margin: 20px auto;
   padding: 10px;
