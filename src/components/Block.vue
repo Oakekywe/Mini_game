@@ -1,6 +1,6 @@
 <template>
-  <div class="block" v-if="showBlock" @click="stopTimer">
-    <p>Click Here {{delay}}</p>
+  <div class="block rounded" v-if="showBlock" @click="stopTimer">
+    <p>Click Here</p>
   </div>
 </template>
 
@@ -29,7 +29,7 @@ export default {
         },
         stopTimer(){
             clearInterval(this.timer);
-            console.log(this.score);
+            this.$emit("endGame",this.score)
         }
     }
     
